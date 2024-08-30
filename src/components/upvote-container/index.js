@@ -13,7 +13,9 @@ const UpVoteContainer = () => {
     useEffect(() => {
         const list = localStorage.getItem('up-voter')
         try {
-            setList(JSON.parse(list))
+            if (list !== null) {
+                setList(JSON.parse(list))
+            }
         } catch (error) {
             setList([])
         }
