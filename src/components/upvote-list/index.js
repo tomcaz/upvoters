@@ -1,14 +1,27 @@
 import React from 'react'
-import './styles.css';
 import PlusIcon from '../icons/plus';
 import BinIcon from '../icons/bin';
+import VoteItem from '../vote-item';
+import IconButton from '../icon-button';
 
-const UpVoteList = ({ handleRemove, id }) => {
+import './styles.css';
+
+const UpVoteList = ({ handleAddVote, handleRemove, id, votes, handleChangeVote }) => {
     return (
         <div className='list-container'>
-            <div className='list'>UpVoteList</div>
-            <button className='list-action'><PlusIcon /></button>
-            <button className='list-action' onClick={() => handleRemove(id)}><BinIcon /></button>
+            <div className='list'>
+                {
+                    votes.map((vote, index) => (
+                        <VoteItem key={index} vote={vote} handleVoteChange={() => handleChangeVote(id, index)} />
+                    ))
+                }
+            </div>
+            <div className='list-action'>
+                <IconButton icon={<PlusIcon />} handleClick={() => handleAddVote(id)}></IconButton>
+            </div>
+            <div className='list-action'>
+                <IconButton icon={<BinIcon />} handleClick={() => handleRemove(id)}></IconButton>
+            </div>
         </div>
     )
 }
