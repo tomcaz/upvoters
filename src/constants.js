@@ -1,0 +1,1 @@
+export const MAX_VOTE_PER_LIST = 5;

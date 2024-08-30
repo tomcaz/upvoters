@@ -1,11 +1,12 @@
 import React from 'react'
 import PlusIcon from '../icons/plus'
+import IconButton from '../icon-button'
 
 const MainTitle = ({ handleAddList }) => {
     return (
         <>
-            Up Vote Container
-            <button style={{ float: 'right' }} onClick={handleAddList}><PlusIcon /></button>
+            <span className='main-title'>Up Voters</span>
+            <IconButton styles={{ float: 'right', marginTop: '-12px' }} handleClick={handleAddList} icon={<PlusIcon />}></IconButton>
         </>
     )
 }
